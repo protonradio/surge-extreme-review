@@ -39,7 +39,7 @@ class ReviewCommand extends Command {
 }
 
 ReviewCommand.description = `
-Publishes the PR code to to Surge.sh and comments the deployment URL on the Github PR.
+Publishes the PR code to Surge.sh and posts the deployment URL on the Github PR.
 `;
 
 ReviewCommand.flags = {

@@ -10,14 +10,21 @@ surge-extreme-review
 <!-- usage -->
 ```sh-session
 $ npm install -g surge-extreme-review
+
 $ surge-extreme-review COMMAND
 running command...
-$ surge-extreme-review (-v|--version|version)
-surge-extreme-review/1.0.0 darwin-x64 node-v8.11.1
+
 $ surge-extreme-review --help [COMMAND]
+VERSION
+  surge-extreme-review/1.0.0 darwin-x64 node-v8.11.1
+
 USAGE
-  $ surge-extreme-review COMMAND
-...
+$ surge-extreme-review [COMMAND]
+
+COMMANDS
+  review
+  cleanup
+  help
 ```
 
 <!-- usagestop -->
@@ -29,7 +36,7 @@ USAGE
 
 ## `surge-extreme-review review`
 
-Publishes the PR code to to Surge.sh and comments the deployment URL on the Github PR.
+Publishes the PR code to Surge.sh and posts the deployment URL on the Github PR.
 
 ```
 USAGE
@@ -45,7 +52,7 @@ OPTIONS
   --surgeToken=surgeToken
 
 DESCRIPTION
-  Publishes the PR code to to Surge.sh and comments the deployment URL on the Github PR.
+  Publishes the PR code to Surge.sh and posts the deployment URL on the Github PR.
 ```
 
 ## `surge-extreme-review cleanup`
