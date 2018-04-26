@@ -1,0 +1,51 @@
+{
+  "name": "surge-extreme-review",
+  "version": "1.0.0",
+  "author": "JC Ivancevich @ivancevich",
+  "bin": {
+    "surge-extreme-review": "./bin/run"
+  },
+  "bugs": "https://github.com/protonradio/surge-extreme-review/issues",
+  "dependencies": {
+    "@oclif/command": "1",
+    "@oclif/config": "1",
+    "@oclif/plugin-help": "1",
+    "@octokit/rest": "^15.2.6",
+    "surge": "^0.20.1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "1",
+    "eslint": "4",
+    "eslint-config-oclif": "1",
+    "globby": "8"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/.oclif.manifest.json",
+    "/bin",
+    "/src"
+  ],
+  "homepage": "https://github.com/protonradio/surge-extreme-review",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "src/index.js",
+  "oclif": {
+    "commands": "./src/commands",
+    "bin": "surge-extreme-review",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "protonradio/surge-extreme-review",
+  "scripts": {
+    "postpack": "rm -f .oclif.manifest.json",
+    "posttest": "eslint .",
+    "prepack": "oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  }
+}
