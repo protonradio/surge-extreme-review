@@ -22,7 +22,7 @@ async function postComment(token, owner, repo, number, surgeURI) {
     repo,
     number, // pull request number
     body: `Deployment for QA: [${surgeURI}](http://${surgeURI})`,
-  })
+  });
 }
 
 function githubAuth(token) {
