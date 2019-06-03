@@ -7,11 +7,11 @@
   },
   "bugs": "https://github.com/protonradio/surge-extreme-review/issues",
   "dependencies": {
-    "@oclif/command": "1",
+    "@oclif/command": "1.5.14",
     "@oclif/config": "1",
     "@oclif/plugin-help": "1",
     "@octokit/rest": "^15.2.6",
-    "surge": "^0.21.0"
+    "surge": "^0.21.1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1",
