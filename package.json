@@ -1,23 +1,23 @@
 {
   "name": "surge-extreme-review",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "JC Ivancevich @ivancevich",
   "bin": {
     "surge-extreme-review": "./bin/run"
   },
   "bugs": "https://github.com/protonradio/surge-extreme-review/issues",
   "dependencies": {
-    "@oclif/command": "1.5.14",
-    "@oclif/config": "1",
-    "@oclif/plugin-help": "1",
-    "@octokit/rest": "^15.2.6",
+    "@oclif/command": "1.5.16",
+    "@oclif/config": "1.13.1",
+    "@oclif/plugin-help": "2.2.0",
+    "@octokit/rest": "^16.28.3",
     "surge": "^0.21.3"
   },
   "devDependencies": {
     "@oclif/dev-cli": "1",
-    "eslint": "4",
-    "eslint-config-oclif": "1",
-    "globby": "8"
+    "eslint": "6.0.1",
+    "eslint-config-oclif": "3.1.0",
+    "globby": "10.0.1"
   },
   "engines": {
     "node": ">=8.0.0"

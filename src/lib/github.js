@@ -5,7 +5,7 @@ module.exports = {getOpenPRs, postComment};
 async function getOpenPRs(token, owner, repo) {
   const github = githubAuth(token);
 
-  const res = await github.pullRequests.getAll({
+  const res = await github.pulls.list({
     state: 'open',
     owner,
     repo,
@@ -14,24 +14,20 @@ async function getOpenPRs(token, owner, repo) {
   return res.data.map(pr => pr.number);
 }
 
-async function postComment(token, owner, repo, number, surgeURI) {
+async function postComment(token, owner, repo, pullRequestNumber, surgeURI) {
   const github = githubAuth(token);
 
   await github.issues.createComment({
     owner,
     repo,
-    number, // pull request number
+    // eslint-disable-next-line camelcase
+    issue_number: pullRequestNumber,
     body: `Deployment for QA: [${surgeURI}](http://${surgeURI})`,
   });
 }
 
 function githubAuth(token) {
-  const github = new GitHub();
-
-  github.authenticate({
-    type: 'oauth',
-    token,
+  return new GitHub({
+    auth: token,
   });
-
-  return github;
 }
