@@ -1,17 +1,17 @@
-const GitHub = require('@octokit/rest');
+const { Octokit } = require("@octokit/rest");
 
-module.exports = {getOpenPRs, postComment};
+module.exports = { getOpenPRs, postComment };
 
 async function getOpenPRs(token, owner, repo) {
   const github = githubAuth(token);
 
   const res = await github.pulls.list({
-    state: 'open',
+    state: "open",
     owner,
     repo,
   });
 
-  return res.data.map(pr => pr.number);
+  return res.data.map((pr) => pr.number);
 }
 
 async function postComment(token, owner, repo, pullRequestNumber, surgeURI) {
@@ -27,7 +27,7 @@ async function postComment(token, owner, repo, pullRequestNumber, surgeURI) {
 }
 
 function githubAuth(token) {
-  return new GitHub({
+  return new Octokit({
     auth: token,
   });
 }

@@ -1,26 +1,26 @@
-const path = require('path');
-const {spawnSync} = require('child_process');
+const path = require("path");
+const { spawnSync } = require("child_process");
 
-const surgeBin = path.resolve(require.resolve('surge'), '..', 'cli.js');
+const surgeBin = path.resolve(require.resolve("surge"), "..", "cli.js");
 
-module.exports = {deploy, tearDown, getDeployedPRs};
+module.exports = { deploy, tearDown, getDeployedPRs };
 
 function deploy(login, token, domain) {
   process.env.SURGE_LOGIN = login;
   process.env.SURGE_TOKEN = token;
-  runSurgeCommand('.', domain);
+  runSurgeCommand(".", domain);
 }
 
 function tearDown(login, token, domain) {
   process.env.SURGE_LOGIN = login;
   process.env.SURGE_TOKEN = token;
-  runSurgeCommand('teardown', domain);
+  runSurgeCommand("teardown", domain);
 }
 
 function getDeployedPRs(login, token, domainTemplate) {
   process.env.SURGE_LOGIN = login;
   process.env.SURGE_TOKEN = token;
-  const surgeOutput = runSurgeCommand('list');
+  const surgeOutput = runSurgeCommand("list");
   const regex = getRegex(domainTemplate);
 
   let m;
@@ -43,7 +43,7 @@ function getDeployedPRs(login, token, domainTemplate) {
 }
 
 function runSurgeCommand(...args) {
-  const child = spawnSync(...['node', [surgeBin, ...args]]);
+  const child = spawnSync(...["node", [surgeBin, ...args]]);
   if (child.error) {
     throw child.error;
   }
@@ -52,5 +52,5 @@ function runSurgeCommand(...args) {
 }
 
 function getRegex(domainTemplate) {
-  return new RegExp(domainTemplate.replace('#{PR}', '(\\d+)'), 'g');
+  return new RegExp(domainTemplate.replace("#{PR}", "(\\d+)"), "g");
 }
